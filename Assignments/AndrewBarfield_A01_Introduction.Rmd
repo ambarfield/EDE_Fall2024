@@ -22,22 +22,22 @@ Enter answers to the questions just below the >Answer: prompt.
 
 1. What are your previous experiences with data analytics, R, and Git? Include both formal and informal training.
 
-> Answer: 
+> Answer: I have had very little experience with R or Github before, but have had a little experience with data analytics. This past year, I worked with large environmental data sets and was tasked with organizing and analyzing that data. For me, that mostly meant organizing the data in Excel spreadsheets and analyzing it by making graphs in Excel. I also worked with another student over the summer who did more in-depth data analysis in R, but I learned very little about R except some of the basics.
 
 2. Are there any components of the course about which you feel confident?
 
-> Answer: 
+> Answer: I feel confident about being able to become comfortable and proficient with navigating and being able to apply R software to data analytics. I also feel comfortable being able to synthesize information from datasets, as well as being able to apply graphical approaches for environmental datasets.
 
 3. Are there any components of the course about which you feel apprehensive?
 
-> Answer: 
+> Answer: I feel a little apprehensive about being able to apply statistical approaches for environmental datasets because I have no previous experience in using statistics in data analytics.
 
 
 ## 2) GitHub
 
 Provide a link below to your forked course repository in GitHub. Make sure you have pulled all recent changes from the course repository and that you have updated your course README file, committed those changes, and pushed them to your GitHub account. 
 
-> Answer: 
+> Answer: https://github.com/ambarfield/EDE_Fall2024.git
 
 ## 3) Knitting
 When you have completed this document, click the `knit` button.This should produce a PDF copy of your markdown document. Submit this PDF to Canvas 
