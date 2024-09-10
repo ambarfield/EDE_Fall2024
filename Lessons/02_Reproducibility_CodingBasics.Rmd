@@ -1,5 +1,6 @@
+---
 title: "2: Reproducibility and Coding Basics"
-subtitle: "Environmental Data Analytics"
+subtitle: #"Environmental Data Analytics"
 author: "John Fay and Luana Lima | Developed by Kateri Salk"
 date: "Fall 2024"
 output: pdf_document
@@ -138,6 +139,7 @@ Within your R code, it is often useful to include notes about your workflow. So 
 # I am demonstrating a comment here. 
 
 1 + 1 # This is a simple math problem
+
 ```
 
 ### Functions
@@ -234,13 +236,6 @@ meal <- recipe4(4); meal
 meal2 <- recipe4(2); meal2
 meal3 <- recipe5(3); meal3
 
-recipe6 <- function(x){
-  ifelse(x<3, x*2, x/2) #log_exp, if TRUE, if FALSE
-  
-}
-
-meal4 <- recipe6(4); meal4
-meal5 <- recipe6(2); meal5
 ```
 
 ### Getting help within R
