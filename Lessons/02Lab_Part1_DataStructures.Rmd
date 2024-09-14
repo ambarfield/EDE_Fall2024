@@ -3,6 +3,8 @@ title: "Lab 2 - Data Structures in R"
 subtitle: "Environmental Data Analytics"
 author: "John Fay & Luana Lima"
 date: "Fall 2024"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## Objective
@@ -36,7 +38,7 @@ Add comments below that specify what kind of vectors are created. (First answer 
 ```{r Creating vectors}
 # Vectors ----
 vector1 <- c(1,2,5.3,6,-2,4) # Vector type: Numeric
-vector1
+vector1 
 class(vector1)
 
 vector2 <- c("one","two","three") # Vector type: 
@@ -62,7 +64,7 @@ vector4 <- c(10:15)
 #
 c(vector1, vector4)
 
-#
+#combined vectors but did not assign to a variable
 vector1 * vector4
 
 #
@@ -83,15 +85,18 @@ Find a 5-day forecast of temperatures (Fahrenheit) for Durham, North Carolina. C
 ```{r Vector Exercise}
 
 #Assign to the variable 'temps_F' a vector of high temperatures in F
-
+temps_F <- c(80,82,80,75,76)
 
 #What is the average of these temperatures 
-
+meanF <- mean(temps_F)
 
 #Compute the difference between each temperature and the average calculated above
-
+temps_F - meanF
 
 #Subtract 32 and multiply by 5/9ths to create a vector in Celsius
+temps_C <- (temps_F-32)*5/9
+
+
 
 
 ```
@@ -103,11 +108,11 @@ Complete the comments below:
 # Matrices ----
 matrix1 <- matrix(1:20, nrow = 5,ncol = 4) # 
 matrix1
-#matrix1 has __ rows and __ columns
+#matrix1 has 5 rows and 4 columns
 
 matrix2 <- matrix(1:20, nrow = 5, ncol = 4, byrow = TRUE) #
 matrix2
-#matrix2 has __ rows and __ columns
+#matrix2 has 5 rows and 4 columns
 
 matrix3 <- matrix(
   data = 1:20, 
@@ -119,14 +124,13 @@ matrix3 <- matrix(
     c("un", "deux", "trois", "quatre")
     )
   ) 
-
+matrix3
 ```
 
 ### Matrix Operations
 Add comments in the code chunk below to indicate type of vectors created and what each operation does.
 ```{r Matrix Operations}
-
-matrix1[4, 1] #
+matrix1[4, 1] #row 4, column 
 
 matrix1[4,  ] #
 
@@ -163,6 +167,7 @@ matrix4['R2','C1']
 ### Exercise 1b: Matrices
 Compute the mean of column "C2" in matrix4. (Should be 14.5)
 ```{r Matrix Exercise}
+mean(matrix4[,'C2'])
 
 ```
 
@@ -198,7 +203,7 @@ names(list1)
 #
 list1[1:2]
 
-#
+#list1
 list1$name = "Janelle"
 
 #
