@@ -55,13 +55,13 @@ Add comments below to indicate what each operation does.(First answer is provide
 # Returns the 3rd item in the vector
 vector1[3]
 
-#
+#returns the max value in the vector
 max(vector1)
 
 #Create another vector of the values 10 thru 15
 vector4 <- c(10:15)
 
-#
+#create a series with vectors 1 and 4
 c(vector1, vector4)
 
 #combined vectors but did not assign to a variable
@@ -85,20 +85,19 @@ Find a 5-day forecast of temperatures (Fahrenheit) for Durham, North Carolina. C
 ```{r Vector Exercise}
 
 #Assign to the variable 'temps_F' a vector of high temperatures in F
-temps_F <- c(80,82,80,75,76)
+temps_F <- c(80, 82, 80, 75, 76)
 
 #What is the average of these temperatures 
-meanF <- mean(temps_F)
+mean_F <- mean(temps_F)
+#must put print(x) to display avg. temp
+print(mean_F)
 
 #Compute the difference between each temperature and the average calculated above
 temps_F - meanF
 
 #Subtract 32 and multiply by 5/9ths to create a vector in Celsius
 temps_C <- (temps_F-32)*5/9
-
-
-
-
+print(temps_C)
 ```
 
 ## Matrices
