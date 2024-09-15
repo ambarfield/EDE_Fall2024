@@ -32,7 +32,8 @@ This exercise accompanies the lessons/labs in Environmental Data Analytics on co
 
 ```{r basics 1}
 #1. 
-sequence_1 <- seq(1,55,5) # assigning sequence_1 the values of our sequence from 1 to 55 increasing by an interval of 5
+sequence_1 <- seq(1,55,5) 
+# assigning sequence_1 the values of our sequence from 1 to 55, increasing by 5
 sequence_1
 
 #2. 
@@ -40,7 +41,8 @@ median(sequence_1) # assessing the median of sequence_1
 mean(sequence_1) # assessing the mean, or average, of sequence_1
 
 #3. 
-mean(sequence_1) > median(sequence_1) # asking R whether the mean of sequence_1 is greater than the median of sequence_1, which it read back as FALSE
+mean(sequence_1) > median(sequence_1) 
+# asking R whether the mean of sequence_1 is greater than the median of sequence_1
 ```
 
 ## Basics, Part 2
@@ -63,7 +65,7 @@ c <- c(TRUE,FALSE,TRUE,FALSE) # Vector type: Logical
 student_dataframe <- data.frame(a,b,c)
 
 #8
-names(student_dataframe) <- c("Students", "Scores","Scholarship")
+names(student_dataframe) <- c("Students","Scores","Scholarship")
 
 ```
 
@@ -81,28 +83,28 @@ names(student_dataframe) <- c("Students", "Scores","Scholarship")
 
 ```{r basics 3}
 #10. Create a function using if...else
-Passing <- function(x)
-  if(x > 50) {
-  "Pass"
-} else {
-  "Fail"
+Passing1 <- function(x)
+  if(x > 50){
+    print("Pass")
+  } else {
+  print("Fail")
 }
 #11. Create a function using ifelse()
-Passing2 <- function(x) 
-  {ifelse(x > 50, "Pass", "Fail")}
-
+Passing2 <- function(x){
+ifelse(x > 50,"Pass","Fail")
+}
 #12a. Run the first function with the value 52.5
-Passing(52.5)
+Passing1(52.5)
 #12b. Run the second function with the value 52.5
 Passing2(52.5)
 #13a. Run the first function with the vector of test scores
-
+# Passing1(b)
 #13b. Run the second function with the vector of test scores
+Passing2(b)
 ```
 
 14. QUESTION: Which option of `if`...`else` vs. `ifelse` worked? Why? (Hint: search the web for "R vectorization")
 
-> Answer: "ifelse" worked
-
+> Answer: Only the option "ifelse" worked. The "if ... else" option failed and gave the error message "the condition has length > 1" when referring to the "if" part of the function. The problem with the "if ... else" function is that it only takes in one element, and so only that element can be used. Considering we had a length of 4, or 4 elements, the first function was unable to work. The second function, however, was able to work because it is vectorized and able to act on all elements of a vector.
 
 **NOTE** Before knitting, you'll need to comment out the call to the function in Q13 that does not work. (A document can't knit if the code it contains causes an error!)
