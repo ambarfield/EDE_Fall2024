@@ -3,6 +3,8 @@ title: "3: Data Exploration"
 author: "Environmental Data Analytics | John Fay & Luana Lima"
 date: "Fall 2024"
 output: pdf_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## Lesson Objectives
@@ -135,8 +137,7 @@ An alternate option is a violin plot, which displays density distributions, some
 
 ```{r, fig.height = 3, fig.width = 4}
 #
-ggplot(USGS.flow.data) +
-  geom_boxplot(aes(x = gage.height.mean.approval, y = gage.height.mean))
+
 
 #
 ggplot(USGS.flow.data) +
