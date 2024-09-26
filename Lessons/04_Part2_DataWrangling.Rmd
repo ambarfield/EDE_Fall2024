@@ -177,12 +177,12 @@ write.csv(LitterTrap, row.names = FALSE,
 dplyr functionality, combined with the pipes operator, allows us to split datasets according to groupings (function: `group_by`), then run operations on those groupings and return the output of those operations. There is a lot of flexibility in this approach, but we will illustrate just one example today.
 
 ```{r split-apply-combine}
-NTL.PeterPaul.summaries <- 
-  NTL.phys.nutrient.data.PeterPaul %>%
+NTL.PeterPaul.summaries <- #new dataframe
+  NTL.phys.nutrient.data.PeterPaul %>% 
   filter(depth == 0) %>%
   group_by(lakename, month,) %>%
   filter(!is.na(temperature_C) & !is.na(tn_ug) & !is.na(tp_ug)) %>%
-  summarise(meantemp = mean(temperature_C), 
+  summarise(meantemp = mean(temperature_C), #creating new columns
             sdtemp = sd(temperature_C), 
             meanTN = mean(tn_ug), 
             sdTN = sd(tn_ug), 
