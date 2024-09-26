@@ -39,7 +39,7 @@ NTL.phys.data <- read.csv(
 str(NTL.phys.data$sampledate)
 
 #Alternatively, use the tidyverse/dplyr "glimpse" function
-glimpse(NTL.phys.data$sampledate)
+glimpse(NTL.phys.data$sampledate) #different output, tidyverse version of structure
 
 # Change sampledate values into date objects
 NTL.phys.data$sampledate <- mdy(NTL.phys.data$sampledate)
@@ -65,27 +65,33 @@ class(NTL.phys.data$depth)
 
 # dplyr filtering 
 NTL.phys.data.surface <- filter(NTL.phys.data, depth == 0) 
+#surface records by filtering values where depth = 0
 
 # Choose multiple conditions to filter
 summary(NTL.phys.data$lakename)
 NTL.phys.data.PeterPaul <- 
   filter(NTL.phys.data, lakename %in% c("Paul Lake", "Peter Lake"))
+  #is it in this list of values (%in%)
 
 # Choose a range of conditions of a numeric or integer variable
 summary(NTL.phys.data$daynum)
 NTL.phys.data.JunethruOctober <- filter(NTL.phys.data, daynum %in% c(152:304))
+#a slice is a set of consecutive values (selecting dates here)
 ```
 
 ```{r Exercise 1 & 2}
 # Exercise 1: 
 # filter NTL.phys.data for the year 1999
+Ex1 <- filter(NTL.phys.data, year4 == 1999) #good!
+
 # what code do you need to use, based on the class of the variable?
 
 
 # Exercise 2: 
 # filter NTL.phys.data for Tuesday Lake from 1990 through 1999.
-
-
+Ex2 <- filter(NTL.phys.data,
+  (lakename == 'Tuesday Lake') & (year4 %in% c(1990:1999))
+)
 ```
 Question: Why don't we filter using row numbers?
 
@@ -103,22 +109,31 @@ Let's say we want to take our raw dataset (NTL.phys.data), *then* filter the dat
 ```{r Exercise 3 & 4}
 #Example using pipes to wrangle data: 
 #Add pipes in the correct place below
-NTL.phys.data.processed <- 
-  NTL.phys.data
-  filter(lakename == "Paul Lake" | lakename == "Peter Lake") 
-  select(lakename, sampledate:temperature_C) 
-  mutate(temperature_F = (temperature_C*9/5) + 32)
+NTL.phys.data.processed <- #creates new data frame
+  NTL.phys.data %>% 
+  #from this data frame
+  filter(lakename == "Paul Lake" | lakename == "Peter Lake") %>%  
+  #filter lakename Peter or Paul lake
+  select(lakename, sampledate:temperature_C) %>%  
+  # reduce the number of columns (lakename and sampledate:temperature C)
+  mutate(temperature_F = (temperature_C*9/5) + 32) 
+#taking temperature C and converting to F in a new column
 
 #Exercise 3: Using a pipe filter NTL.phys.data for Tuesday Lake from 1990 
 # through 1999 only for July.
-
-  
+Ex3 <- NTL.phys.data %>%
+  filter(lakename == 'Tuesday Lake') %>% 
+  filter(year4 %in% c(1990:1999)) %>%
+  filter(month(sampledate) == 7)
 
 #Exercise 4: Using the data from part 3, a pipe, and the summarize() function, 
 # find the mean surface water temperature. 
 # (hint: you will need to filter for depth==0.25). 
-
-  
+Ex4 <- Ex3 %>% 
+  filter(depth == 0) %>% 
+  summarize(
+    mean_surface = mean(temperature_C)
+  )
 ```
 
 
@@ -132,6 +147,7 @@ For gather we will use `pivot_longer` and for spread we will use `pivot_wider`.
 #  on the deck of the sampling boat) into one column using pivot_longer. Name
 #  the new column holding the irradiance type as "Irradiance_Type", and name the
 #  new column holding the irradiance values as "Irradiance_Value".
+
 
 
 
