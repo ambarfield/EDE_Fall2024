@@ -97,15 +97,17 @@ EPA.PM25.2018.Data$AQS_PARAMETER_DESC <- "PM2.5"
 EPA.PM25.2019.Data$AQS_PARAMETER_DESC <- "PM2.5"
 
 #6
-write.csv(EPA.03.2018.Data, row.names = FALSE, file = "./Data/Processed/EPAair_O3_NC2018_processed.csv"
-)
-write.csv(EPA.03.2019.Data, row.names = FALSE, file = "./Data/Processed/EPAair_O3_NC2019_processed.csv"
-)
-write.csv(EPA.PM25.2018.Data, row.names = FALSE, file = "./Data/Processed/EPAair_PM25_NC2018_processed.csv"
-)
-write.csv(EPA.PM25.2019.Data, row.names = FALSE, file =
-"./Data/Processed/EPAair_PM25_NC2019_processed.csv"            
-)
+write.csv(EPA.03.2018.Data, row.names = FALSE, 
+file = "./Data/Processed/EPAair_O3_NC2018_processed.csv")
+
+write.csv(EPA.03.2019.Data, row.names = FALSE, 
+file = "./Data/Processed/EPAair_O3_NC2019_processed.csv")
+
+write.csv(EPA.PM25.2018.Data, row.names = FALSE, 
+file = "./Data/Processed/EPAair_PM25_NC2018_processed.csv")
+
+write.csv(EPA.PM25.2019.Data, row.names = FALSE, 
+file = "./Data/Processed/EPAair_PM25_NC2019_processed.csv")
 ```
 
 
