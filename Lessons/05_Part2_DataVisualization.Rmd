@@ -47,7 +47,7 @@ print(O3plot1)
 
 O3plot2 <- ggplot(EPAair) +
   geom_point(aes(x = Date, y = Ozone)) +
-  theme_bw()
+  theme_bw() #background is white instead of grey
 print(O3plot2)
 
 O3plot3 <- ggplot(EPAair) +
@@ -70,8 +70,8 @@ Notice that some aspects of your graph have not been adjusted, including:
 If you would like to set a common theme across all plots in your analysis session, you may define a theme and call up that theme for each graph. This eliminates the need to add multiple lines of code in each plot. 
 
 ```{r, fig.height = 3, fig.width = 4, warning = FALSE}
-mytheme <- theme_classic(base_size = 14) +
-  theme(axis.text = element_text(color = "black"), 
+mytheme <- theme_classic(base_size = 14) + #font size
+  theme(axis.text = element_text(color = "black"),
         legend.position = "top") #alternative: legend.position + legend.justification
 
 # options: call the theme in each plot or set the theme at the start. 
@@ -81,7 +81,7 @@ O3plot5 <- ggplot(EPAair) +
   mytheme
 print(O3plot5)  
 
-theme_set(mytheme)
+theme_set(mytheme) #set theme for all subsequent plots
 
 O3plot6 <- ggplot(EPAair) +
   geom_point(aes(x = Date, y = Ozone))
@@ -97,7 +97,7 @@ While the theme allows us to set multiple aspects of plots, ggplot allows us to 
 O3plot7 <- ggplot(EPAair, aes(x = Date, y = Ozone)) +
   geom_hline(yintercept = 50, lty = 2) +
   geom_hline(yintercept = 100, lty = 2) +
-  geom_point(alpha = 0.5, size = 1.5) +
+  geom_point(alpha = 0.5, size = 1.5) + #transparency/size of points
   geom_text(x = as.Date("2020-01-01"), y = 45, label = "good", hjust = 1, fontface = "bold") +   # hjust = 1 means left align
   geom_text(x = as.Date("2020-01-01"), y = 95, label = "moderate", hjust = 1, fontface = "bold") +
   geom_text(x = as.Date("2020-01-01"), y = 120, label = "unhealthy (sensitive groups)", hjust = 1, fontface = "bold") +
@@ -105,7 +105,7 @@ O3plot7 <- ggplot(EPAair, aes(x = Date, y = Ozone)) +
     date_breaks = "2 months", date_labels = "%b %y") +
   ylab(expression("O"[3]* " AQI Value")) +
   theme(axis.text.x = element_text(angle = 45,  hjust = 1))
-print(O3plot7)  
+print(O3plot7)  #defining three different levels
 
 ```
 
@@ -152,9 +152,9 @@ nationalparkcolors (package)
 * https://github.com/katiejolly/nationalparkcolors
 
 ```{r, warning = FALSE}
-# install.packages("viridis")
-# install.packages("RColorBrewer")
-# install.packages("colormap")
+#install.packages("viridis")
+#install.packages("RColorBrewer")
+#install.packages("colormap")
 library(viridis)
 library(RColorBrewer)
 library(colormap)
