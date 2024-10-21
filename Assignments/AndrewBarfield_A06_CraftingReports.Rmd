@@ -111,6 +111,33 @@ knitr::kable(summary_Ozone, col.names = c("County", "$\\mu g/m^3$"), caption = "
 
 Below this paragraph, but above the horizonal line (`---`), create two separate code chunks that create boxplots of the distribution of Ozone levels by month using, one for only records collected in 2018 and one for records in 2019. Customize the chunk options such that the final figures are displayed but not the code used to generate the figures. In addition, align the plots on the left side of the page and set the figure heights so both plots fit on the same page with minimal space remaining. Lastly, add a `fig.cap` chunk option to add a caption (title) to your plot that will display underneath the figure.
 
+```{r echo=FALSE, fig.align='left', fig.cap="2018 monthly Ozone levels", fig.height= 3, fig.width= 7, message=FALSE, warning=FALSE}
+epa_data$Month <-
+  factor(epa_data$Month, levels = 1:12, labels = month.abb)
+
+epa_data %>%
+  filter(Year == 2018) %>% 
+  ggplot(aes
+  (x = Month,
+   y = Ozone)) +
+  geom_boxplot() +
+  ggtitle ("Monthly Ozone Concentrations (2018)") +
+  ylab ("Concentrations (ug/m3)")
+
+```
+
+```{r echo=FALSE, fig.align='left', fig.cap="2019 monthly Ozone levels", fig.height= 3, fig.width = 7, message=FALSE, warning=FALSE}
+
+epa_data %>%
+  filter(Year == 2019) %>% 
+  ggplot(aes
+  (x = Month,
+   y = Ozone)) +
+  geom_boxplot() +
+  ggtitle ("Monthly Ozone Concentrations (2019)") +
+  ylab ("Concentrations (ug/m3)")
+```
+
 
 ---
 
@@ -121,3 +148,5 @@ Below this paragraph, but above the horizonal line (`---`), create two separate 
 Add a table of contents and list of figures to your document and knit to a PDF. Submit your PDF to Sakai, but also be sure to commit and push your Rmd file used to create this knit document to GitHub. In the section below, add a link to your GitHub repository.
 
 ## Git Repository
+
+https://github.com/ambarfield/EDE_Fall2024.git
