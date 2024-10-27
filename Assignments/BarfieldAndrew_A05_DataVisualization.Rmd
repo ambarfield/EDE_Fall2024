@@ -72,7 +72,7 @@ class(Niwot.Ridge.Litter$collectDate)
 
 ```{r build plot theme}
 #3
-my_theme <- theme_base() + 
+zmy_theme <- theme_base() + 
   theme(
   legend.position = 'bottom',
   plot.background = element_rect(fill = 'lightgrey'),
